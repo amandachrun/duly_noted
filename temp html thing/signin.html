@@ -22,11 +22,13 @@
             }
 
             function Password_match(){
-                
-
                 if(p1.ariaValueText == p2.ariaValueText){
-                    p2.style.color = "red"
+                    //p2.style.color = "red"
                 }
+            }
+
+            function Submit(){
+                
             }
 
         </script>
@@ -37,12 +39,20 @@
         <form action="">
             <fieldset>
                 <legend>Sign-up</legend>
-                <input type="email" placeholder="email" id="txtEmail" name="txtEmail" oninput="Email_verified()" autofocus><br>
-                <input type="password" placeholder="password" id="txtPswd" name="txtPswd" oninput="Password_verf()"><br><br>
-                <input type="password" placeholder="re-password" id="txtRePswd" name="txtRePswd" oninput="Password_match()" ><br><br>
-                <input type="submit" value="login">
+
+                <label>Email</label><br>
+                <input type="email" placeholder="qwerty@email.com" id="txtEmail" name="txtEmail" oninput="Email_verified()" autofocus><br><br>
+                <label>Password *</label><br>
+                <input type="password" placeholder="ex: Qwerty1!" id="txtPswd" name="txtPswd" oninput="Password_verf()"><br><br>
+                <label>Re-Password *</label>
+                <input type="password" placeholder="same as top password" id="txtRePswd" name="txtRePswd" oninput="Password_match()"><br><br>
+
+                <label style="color: red;">* The password must be between 8 and 12 character</label><br>
+                <label style="color: red;">* It must also contain 1 Uppercase, 1 lowercase, 1 number</label><br>
+                <label style="color: red;">* and i special character ! @ # $ % ^ & * _ = + -</label><br><br>
+
+                <input type="submit" value="login" onclick="Submit()">
             </fieldset>
-            <label id="lblError"> <!-- enable it and enter not valible when error with autetntification occured --></label>
           </form> 
     </body>
 </html>
