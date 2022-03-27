@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sign-up</title>
+    </head>
+
+    <body>
+        <script>
+            var pattern_email = new RegExp("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])");
+            var pattern_password = new RegExp("/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/gm");
+
+            var email = document.getElementById(txtEmail);
+            var p1 = document.getElementById(txtPswd);
+            var p2 = document.getElementById(txtRePswd);
+
+            function Email_verified(){
+                
+            }
+
+            function Password_verf(){
+
+            }
+
+            function Password_match(){
+                
+
+                if(p1.ariaValueText == p2.ariaValueText){
+                    p2.style.color = "red"
+                }
+            }
+
+        </script>
+
+         <!-- Add the where to send the login info in the action if we send login in another page
+              To look if we do 2 to 4 page or even 1 page?
+            -->
+        <form action="">
+            <fieldset>
+                <legend>Sign-up</legend>
+                <input type="email" placeholder="email" id="txtEmail" name="txtEmail" oninput="Email_verified()" autofocus><br>
+                <input type="password" placeholder="password" id="txtPswd" name="txtPswd" oninput="Password_verf()"><br><br>
+                <input type="password" placeholder="re-password" id="txtRePswd" name="txtRePswd" oninput="Password_match()" ><br><br>
+                <input type="submit" value="login">
+            </fieldset>
+            <label id="lblError"> <!-- enable it and enter not valible when error with autetntification occured --></label>
+          </form> 
+    </body>
+</html>
+

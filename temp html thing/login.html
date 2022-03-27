@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Page Title</title>
+        <title>Log-in</title>
     </head>
+
     <body>
+        <script type="text/javascript">
+            // email regex thing: (?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])
+            // password regex: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/gm
+        </script>
+
          <!-- Add the where to send the login info in the action if we send login in another page
               To look if we do 2 to 4 page or even 1 page?
             -->
         <form action="">
             <fieldset>
-                <legend>Login</legend>
-                <input type="text" placeholder="username" id="txtUsername" name="txtUsername" autofocus><br>
+                <legend>Log-in</legend>
+                <input type="email" placeholder="email" id="txtEmail" name="txtEmail" autofocus><br>
                 <input type="password" placeholder="password" id="txtPswd" name="txtPswd" ><br><br>
-                <input type="submit" value="login">
-
-                <uml>signup</uml>
+                <input type="submit" value="login"><br>
+                <a href="signin.html">don't have a account? Sign-in</a>
             </fieldset>
             <label id="lblError"> <!-- enable it and enter not valible when error with autetntification occured --></label>
           </form> 
