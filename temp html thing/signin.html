@@ -9,26 +9,35 @@
             var pattern_email = new RegExp("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])");
             var pattern_password = new RegExp("/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/gm");
 
-            var email = document.getElementById(txtEmail);
-            var p1 = document.getElementById(txtPswd);
-            var p2 = document.getElementById(txtRePswd);
+            var email = document.getElementById(txtEmail).value;
+            var p1 = document.getElementById(txtPswd).value;
+            var p2 = document.getElementById(txtRePswd).value;
 
             function Email_verified(){
-                
+                if(email.RegExp(pattern_email)){
+                    email.style.color = "black"
+                }
+                // mini test
+                var x = document.getElementById(email).value;
+                document.getElementById(test).innerHTML = x;
             }
 
             function Password_verf(){
-
+                if(p1.RegExp(pattern_password)){
+                    p1.style.color = "black";
+                }
             }
 
             function Password_match(){
-                if(p1.ariaValueText == p2.ariaValueText){
-                    //p2.style.color = "red"
+                if(p1.value == p2.value){
+                    p2.style.color = "black"
                 }
             }
 
             function Submit(){
-                
+                // Verify backend if user already exist
+                // if yes = not register and tell user than already exist with alert
+                // if no = tell user is register eith alert and go to login page
             }
 
         </script>
@@ -41,17 +50,19 @@
                 <legend>Sign-up</legend>
 
                 <label>Email</label><br>
-                <input type="email" placeholder="qwerty@email.com" id="txtEmail" name="txtEmail" oninput="Email_verified()" autofocus><br><br>
+                <input type="text" placeholder="qwerty@email.com" id="txtEmail" name="txtEmail" oninput="Email_verified()" style="color: red;" autofocus><br><br>
                 <label>Password *</label><br>
-                <input type="password" placeholder="ex: Qwerty1!" id="txtPswd" name="txtPswd" oninput="Password_verf()"><br><br>
-                <label>Re-Password *</label>
-                <input type="password" placeholder="same as top password" id="txtRePswd" name="txtRePswd" oninput="Password_match()"><br><br>
+                <input type="password" placeholder="ex: Qwerty1!" id="txtPswd" name="txtPswd" oninput="Password_verf()" style="color: red;"><br><br>
+                <label>Re-Password *</label><br>
+                <input type="password" placeholder="same as top password" id="txtRePswd" name="txtRePswd" oninput="Password_match()" style="color: red;"><br><br>
 
                 <label style="color: red;">* The password must be between 8 and 12 character</label><br>
                 <label style="color: red;">* It must also contain 1 Uppercase, 1 lowercase, 1 number</label><br>
                 <label style="color: red;">* and i special character ! @ # $ % ^ & * _ = + -</label><br><br>
 
-                <input type="submit" value="login" onclick="Submit()">
+                <br><label id="test">i</label><br>
+
+                <input type="submit" value="Sign-in" onclick="Submit()">
             </fieldset>
           </form> 
     </body>
