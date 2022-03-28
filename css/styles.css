@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 9;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-image: linear-gradient(300deg, red, #edd5e5);
+    color: black;
+    min-height: 100vh;
+  }
+  
+  header {
+    font-size: 25pt;
+    font-family: 'Palette Mosaic';
+    color:crimson;
+  }
+  
+  header, form {
+    min-height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+  }
+  
+  form input, form button {
+    padding: 0.5rem;
+    font-size: 20pt;
+    border: none;
+    background: white;
+  }
+  
+  form button {
+    color: crimson;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  form button:hover {
+    background: crimson;
+    color: white;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .taskList {
+    min-width: 30%;
+    list-style: none;
+  }
+  
+  .task {
+    font-size: 20pt;
+    margin: 0.5rem;
+    background-color: white;
+    display: flex;
+  }
