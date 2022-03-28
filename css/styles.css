@@ -5,15 +5,15 @@
   }
   
   body {
-    background-image: linear-gradient(300deg, red, #edd5e5);
-    color: black;
+    background-image: linear-gradient(300deg, #131a33, #000103);
+    color: #617fba;;
     min-height: 100vh;
   }
   
   header {
     font-size: 25pt;
     font-family: 'Palette Mosaic';
-    color:crimson;
+    color: #d4e2ff;
   }
   
   header, form {
@@ -27,19 +27,20 @@
     padding: 0.5rem;
     font-size: 20pt;
     border: none;
-    background: white;
+    color: #617fba;;
+    background: #d4e2ff;
   }
   
   form button {
-    color: crimson;
-    background: white;
+    color: #617fba;
+    background: #d4e2ff;
     cursor: pointer;
     transition: all 0.3s ease;
   }
   
   form button:hover {
-    background: crimson;
-    color: white;
+    background: #617fba;
+    color: #d4e2ff
   }
   
   .container {
@@ -56,7 +57,7 @@
   .task {
     font-size: 20pt;
     margin: 0.5rem;
-    background-color: white;
+    background-color: #d4e2ff;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -65,3 +66,12 @@
   .task li {
     flex: 1;
   }
+
+  .delete-btn, .complete-btn {
+    background: #617fba;
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+  }
+
