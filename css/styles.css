@@ -151,63 +151,21 @@
   }
 
 
-  /* Style the tab */
-.tab {
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
-}
-
-/* Style the buttons that are used to open the tab content */
-.tab button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #ddd;
-}
-
-/* Create an active/current tablink class */
-.tab button.active {
-  background-color: #ccc;
-}
-
-/* Style the tab content */
-.tabcontent {
-  background-color: white;
-  display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
-}
-
-  #close{
-
-  color: #000103;
-  font-weight: bold;
-
-}
 
 /*Clock*/
+
 /* clock update*/
-.formclock input {
-  transition: 0.5s ease-in-out;
-  margin: 10px 0;
-  font-size: 18px;
-  padding: 5px;
-  background: rgba(0, 0, 0, 0.11);
-  border: none;
+
+.myTable, label {
+  width: 25%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  justify-content: center;
 }
+
 .btn-group {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   height: 10%;
   margin: 35px 0;
@@ -219,18 +177,7 @@
   font-size: 18px;
   transition: 0.5s ease-in-out;
 }
-.formclocklabel {
-  font-size: 12px;
-}
 
-.formClock {
-  height: 20%;
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  max-width: 370px;
-  margin: 5px auto;
-}
 /*form button {
   background: rgb(25, 67, 255);
   width: 100%;
@@ -300,7 +247,6 @@
     transform: rotate(-90deg) scale(0.8);
   }
 }
-
   .btn-group {
     grid-area: btns;
     justify-content: center;

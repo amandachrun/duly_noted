@@ -46,6 +46,7 @@
       </span>
     </header>
     <p style="text-align:center; font-family: 'Oswad'; letter-spacing: 4px; color: white;"><i>Your productivity solution!</i></p>
+    <br><br>
     
     <!--Clock-->
     <figure class="clock">
@@ -67,27 +68,54 @@
       </svg>
     </figure>
     
-    <div class="btn-group">
-      <button class="start">start focus</button>
-      <button class="reset">reset</button>
-      <button class="pause">pause</button>
-    </div>
-    
-    <form action=".">
-      <label for="focusTime">Focus Time</label>
-      <input type="number" value="1" id="focusTime" />
-      <label for="breakTime">Break Time</label>
-      <input type="number" value="1" id="breakTime" />
-      <button type="submit">Save settings</button>
-    </form>
-
+    <table class="myTable">
+    <tr>
+      <td>
+        <div class="btn-group">
+          <button class="start">start focus</button>
+          <button class="reset">reset</button>
+          <button class="pause">pause</button>
+        </div>
+      </td>
+    </tr>
+    <form class="formTask" action=".">
+    <tr>
+      <td>
+      
+        <label for="focusTime">Focus Time</label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input type="number" value="1" id="focusTime" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="breakTime">Break Time</label>
+      </td>
+      </tr>
+      <tr>
+        <td>
+        <input type="number" value="1" id="breakTime" />
+      </td>
+      </tr>
+      <tr>
+        <td>
+        <button type="submit">Save settings</button>
+        </td>
+        </tr>
+      </form>
+      </td>
+    </tr>
+    </table>
     <script src="settings.js"></script>
     <script src="timer.js"></script>
     <script src="progress.js"></script>
 
     <p id="lblcount"></p>
     <form class="formTask">
-      <input type="text" class="textTask">
+      <input type="text" class="textTask" value="Type your tasks here...">
       <button class="btnTask" type="submit">
         <i class="fas fa-plus-square"></i>
       </button>
