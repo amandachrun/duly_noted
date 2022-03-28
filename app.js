@@ -3,9 +3,17 @@
 const taskInput = document.querySelector('.textTask');
 const btnTask = document.querySelector('.btnTask');
 const taskList = document.querySelector('.taskList');
+const btnLogin = document.querySelector('.btnLogin');
+var count = 0;
 
 btnTask.addEventListener('click', addTask);
 taskList.addEventListener('click', deleteComplete);
+btnLogin.addEventListener('click', login);
+
+function pageLoad() {
+    var lblshow = "Number of completed tasks: " + count;
+    document.getElementById("lblcount").innerHTML = lblshow;
+}
 
 function addTask(event) {
     event.preventDefault();     //so it doesn't submit
@@ -18,6 +26,8 @@ function addTask(event) {
     newTask.classList.add('taskItem');
     
     taskDiv.appendChild(newTask);
+
+    //saveLocally(taskInput.value);
 
     const completedBtn = document.createElement('button');
     completedBtn.innerHTML = '<i class="fas fa-check"></i>';
@@ -37,5 +47,44 @@ function addTask(event) {
 
 function deleteComplete (e) {
     const item = e.target;
-    if(item.classList[0] === 'delete-btn')
+    if(item.classList[0] === 'delete-btn') {
+        if(confirm("Are you sure you want to delete it?")) {
+            const task = item.parentElement;
+            task.remove();
+        }
+    }
+
+    if(item.classList[0] === 'complete-btn') {
+        const task = item.parentElement;
+        task.classList.toggle("completed");
+        count++;
+
+        var lblshow = "Number of completed tasks: " + count;
+        document.getElementById("lblcount").innerHTML = lblshow;
+    }
+}
+
+
+function saveLocally(task) {
+    let tasks;
+    if(localStorage.getItem('tasks' === null)) {
+        tasks = [];
+        tasks.push(task);
+    } else {
+        tasks = JSON.parse(localStorage.getItem('tasks'));
+    }
+    tasks.push(task);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+
+function login(event) {
+    //event.preventDefault();
+    
+
+    document.getElementById('overlays').style.display="none";
+    document.getElementsById('form-popup').style.display="none";
+    document.getElementsById('form-container').style.display="none";
+
+    
 }
