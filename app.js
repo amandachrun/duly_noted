@@ -5,6 +5,7 @@ const btnTask = document.querySelector('.btnTask');
 const taskList = document.querySelector('.taskList');
 
 btnTask.addEventListener('click', addTask);
+taskList.addEventListener('click', deleteComplete);
 
 function addTask(event) {
     event.preventDefault();     //so it doesn't submit
@@ -13,7 +14,7 @@ function addTask(event) {
     taskDiv.classList.add('task');
 
     const newTask = document.createElement('li');
-    newTask.innerText = 'hey';
+    newTask.innerText = taskInput.value;
     newTask.classList.add('taskItem');
     
     taskDiv.appendChild(newTask);
@@ -30,4 +31,11 @@ function addTask(event) {
 
     taskList.appendChild(taskDiv);
 
+    taskInput.value = "";
+
+}
+
+function deleteComplete (e) {
+    const item = e.target;
+    if(item.classList[0] === 'delete-btn')
 }
