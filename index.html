@@ -4,7 +4,7 @@
     <!--Using google fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Palette+Mosaic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Palette+Mosaic&display=swap" rel="stylesheet"> 
     <!--To use icons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--Bootstrap-->
@@ -17,21 +17,31 @@
 
     <!--Covers the page-->
 
-    <!--
+  
     <div id="overlay">
-      <div id="form-popup">
-        <form id="form-container">
-          <button class="btnLogin" >Login</button>
-        </form>
+      <!--Login form-->
+      <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'Login')">Login</button>
+        <button class="tablinks" onclick="openCity(event, 'Register')">Register</button>
       </div>
     </div>
-  -->
 
+    <div id="Login" class="tabcontent">
+      <h3>London</h3>
+      <p>London is the capital city of England.</p>
+    </div>
+    
+    <div id="Register" class="tabcontent">
+      <h3>Paris</h3>
+      <p>Paris is the capital of France.</p>
+    </div>
+
+    <!--Task List-->
     <header>
       <h1>Duly Noted!</h1>
     </header>
     <p id="lblcount"></p>
-    <form>
+    <form class="formTask">
       <input type="text" class="textTask">
       <button class="btnTask" type="submit">
         <i class="fas fa-plus-square"></i>
