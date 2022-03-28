@@ -81,10 +81,10 @@ function saveLocally(task) {
 function login(event) {
     //event.preventDefault();
     
-
     document.getElementById('overlays').style.display="none";
     document.getElementsById('form-popup').style.display="none";
     document.getElementsById('form-container').style.display="none";
+
 
     
 }
