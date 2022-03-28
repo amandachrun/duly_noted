@@ -1,3 +1,5 @@
+
+/*For the task list*/
 * {
     margin: 0;
     padding: 9;
@@ -11,11 +13,51 @@
     position: relative;
   }
   
+
+  /*Title styling*/
+  p {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    font-size: 3rem;
+    background: linear-gradient(to bottom, rgb(38, 44, 75), rgb(49, 49, 95) 60%, rgb(146, 173, 223) 60%, #fff 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-repeat: no-repeat;
+    transition: background 0.2s ease-out;
+    white-space: nowrap;
+  }
+  
+  span {
+    position: relative;
+  }
+  
+  span:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 15px;
+    background: white;
+    bottom: 9px;
+    transition: all 0.2s ease-out;
+  }
+  
+  p:hover {
+    background-position: 0 11px;
+  }
+  
+  span:hover:before {
+    transform: translateY(10px)
+  }
+
   header {
     font-size: 45pt;
     font-family: 'Oswad';
     color: #d4e2ff;
   }
+
   
   header, form {
     min-height: 20vh;
@@ -95,6 +137,8 @@
     opacity: 0.5;
   }
 
+
+  /*For the overlay, login, register*/
   #overlay{
     position: absolute;
     top: 0;
@@ -146,9 +190,6 @@
   }
 
 
-
-  
-
   /* Style the tab */
 .tab {
   overflow: hidden;
@@ -185,15 +226,16 @@
   border: 1px solid #ccc;
   border-top: none;
 }
-#close{
 
-color: #000103;
-font-weight: bold;
+  #close{
 
-
-
+  color: #000103;
+  font-weight: bold;
 
 }
+
+
+
 /* clock update*/
 input {
   transition: 0.5s ease-in-out;
