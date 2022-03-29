@@ -2,6 +2,7 @@
 <html>
   <head>
     <!--Using google fonts-->
+    <meta charset="utf-8"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Palette+Mosaic&display=swap" rel="stylesheet"> 
@@ -16,29 +17,6 @@
   <body onload="pageLoad()">
 
     <!--Covers the page-->
-
-<!--
-    <div id="overlay">
-      
-      <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'Login')">Login</button>
-        <button class="tablinks" onclick="openCity(event, 'Register')">Register</button>
-      </div>
-    </div>
-
-    <div id="Login" class="tabcontent">
-      <h3>London</h3>
-      <p>London is the capital city of England.</p>
-    </div>
-    
-    <div id="Register" class="tabcontent">
-      <h3>Paris</h3>
-      <p>Paris is the capital of France.</p>
-    </div>
-  -->
-
-
-  
     <!--Task List-->
     <header>
       <span>
@@ -72,40 +50,45 @@
     <tr>
       <td>
         <div class="btn-group">
-          <button class="start">start focus</button>
+          <button class="start">start </button>
           <button class="reset">reset</button>
           <button class="pause">pause</button>
+          <button id="btnsetting" class="setting"><i class="fa fa-gear"></i></button>
+        </div>
+        <div id="myModal" class="modal">
+
+          <!-- Modal content -->
+          <div class="modal-content">
+            <table class="myTable">
+              <form class="formTask" action=".">
+           
+              <tr>
+                
+                <td>
+                  
+                  <label>Focus Time</label>
+                </td>
+                <td><span class="close">&times;</span></td>                
+              </tr>
+              <tr>
+                <td>
+                  <input type="number" value="20" id="focusTime" />
+                </td>
+              </tr>
+              <tr>
+               
+                <tr>
+                  <td>
+                  <button type="submit">Save settings</button>
+                  </td>
+                  </tr>
+                </form>
+            </table>
+          </div>
+        
         </div>
       </td>
     </tr>
-    <form class="formTask" action=".">
-    <tr>
-      <td>
-      
-        <label for="focusTime">Focus Time</label>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <input type="number" value="1" id="focusTime" />
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <label for="breakTime">Break Time</label>
-      </td>
-      </tr>
-      <tr>
-        <td>
-        <input type="number" value="1" id="breakTime" />
-      </td>
-      </tr>
-      <tr>
-        <td>
-        <button type="submit">Save settings</button>
-        </td>
-        </tr>
-      </form>
       </td>
     </tr>
     </table>
@@ -122,7 +105,7 @@
       <button class="btnTask" type="submit">
         <i class="fas fa-plus-square"></i>
       </button>
-      </div>
+      </div>  
     </form>
     <div class="container">
       <ul class="taskList">

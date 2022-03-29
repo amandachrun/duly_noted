@@ -14,10 +14,7 @@ startBtn.addEventListener("click", () => {
 
   if (btn === "focus") {
     mins = +localStorage.getItem("focusTime") || 1;
-  } else {
-    mins = +localStorage.getItem("breakTime") || 1;
-  }
-
+  } 
   seconds = mins * 60;
   totalsecs = mins * 60;
   setTimeout(decremenT(), 60);
@@ -44,17 +41,6 @@ function decremenT() {
     mins = 0;
     seconds = 0;
     bell.play();
-    let btn = localStorage.getItem("btn");
-
-    if (btn === "focus") {
-      startBtn.textContent = "start break";
-      startBtn.classList.add("break");
-      localStorage.setItem("btn", "break");
-    } else {
-      startBtn.classList.remove("break");
-      startBtn.textContent = "start focus";
-      localStorage.setItem("btn", "focus");
-    }
     startBtn.style.transform = "scale(1)";
   }
 }
