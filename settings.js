@@ -24,6 +24,10 @@ window.onclick = function(event) {
   }
 }
 
+save.onclick = function(event){
+  modal.style.display = "none";
+}
+
 
 
 const focusTimeInput = document.querySelector("#focusTime");
