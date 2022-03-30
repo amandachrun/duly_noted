@@ -27,8 +27,6 @@ function addTask(event) {
     
     taskDiv.appendChild(newTask);
 
-    //saveLocally(taskInput.value);
-
     const completedBtn = document.createElement('button');
     completedBtn.innerHTML = '<i class="fas fa-check"></i>';
     completedBtn.classList.add("complete-btn");
@@ -65,47 +63,4 @@ function deleteComplete (e) {
 }
 
 
-function saveLocally(task) {
-    let tasks;
-    if(localStorage.getItem('tasks' === null)) {
-        tasks = [];
-        tasks.push(task);
-    } else {
-        tasks = JSON.parse(localStorage.getItem('tasks'));
-    }
-    tasks.push(task);
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-}
 
-
-function login(event) {
-    //event.preventDefault();
-    
-    document.getElementById('overlays').style.display="none";
-    document.getElementsById('form-popup').style.display="none";
-    document.getElementsById('form-container').style.display="none";
-
-
-    
-}
-
-function openCity(evt, cityName) {
-    // Declare all variables
-    var i, tabcontent, tablinks;
-  
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-  
-    // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-  
-    // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-  }
