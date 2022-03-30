@@ -10,7 +10,7 @@ import (
 
 func homePage(w http.ResponseWriter, r *http.Request) {
 
-	renderTemplate(w, "static/index.html")
+	renderTemplate(w, "index.html")
 
 }
 
