@@ -1,3 +1,15 @@
+<!--
+  2022-03-30
+
+  Pomodoro web application project done for the purpose of Trend of Technology class
+
+  Tasks were divided as follow,
+  Overall UI and task-list: Amanda
+  Clock UI, associated features and modal: David
+  Golang server: You
+  Misc., paperwork: Ravid
+-->
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -44,6 +56,7 @@
           border: none;
           color: #617fba;;
           background: #d4e2ff;
+          border-radius: 5px;
         }
         
         form button {
@@ -56,6 +69,7 @@
           color: #d4e2ff
         }
         /*Task list*/
+
         .container {
           display: flex;
           justify-content: center;
@@ -69,7 +83,7 @@
         
         .task {
           font-size: 12pt;
-          
+          border-radius: 5px;
           background-color: #d4e2ff;
           display: flex;
           justify-content: space-between;
@@ -529,7 +543,7 @@ function decremenT() {
 
       </ul>
     </div>
-
+    <!--Originally, everything was linked in.-->
     <!--<script src="./app.js"></script>-->
 
     <script>
@@ -557,47 +571,54 @@ function addTask(event) {
     const taskDiv = document.createElement('div');
     taskDiv.classList.add('task');
 
-    const newTask = document.createElement('li');
-    newTask.innerText = taskInput.value;
-    newTask.classList.add('taskItem');
-    
-    taskDiv.appendChild(newTask);
+      function addTask(event) {
+          event.preventDefault();     //so it doesn't submit/refresh
+          
+          //when the button is clicked, new elements will be created, in this case, to-do's
+          const taskDiv = document.createElement('div');
+          taskDiv.classList.add('task');
 
-    const completedBtn = document.createElement('button');
-    completedBtn.innerHTML = '<i class="fas fa-check"></i>';
-    completedBtn.classList.add("complete-btn");
-    taskDiv.appendChild(completedBtn);
+          const newTask = document.createElement('li');
+          newTask.innerText = taskInput.value;
+          newTask.classList.add('taskItem');
+          
+          taskDiv.appendChild(newTask);
 
-    const deleteBtn = document.createElement('button');
-    deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
-    deleteBtn.classList.add("delete-btn");
-    taskDiv.appendChild(deleteBtn);
+          const completedBtn = document.createElement('button');
+          completedBtn.innerHTML = '<i class="fas fa-check"></i>';
+          completedBtn.classList.add("complete-btn");
+          taskDiv.appendChild(completedBtn);
 
-    taskList.appendChild(taskDiv);
+          const deleteBtn = document.createElement('button');
+          deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
+          deleteBtn.classList.add("delete-btn");
+          taskDiv.appendChild(deleteBtn);
 
-    taskInput.value = "";
+          taskList.appendChild(taskDiv); //appends to the container
 
-}
+          taskInput.value = "";
 
-function deleteComplete (e) {
-    const item = e.target;
-    if(item.classList[0] === 'delete-btn') {
-        if(confirm("Are you sure you want to delete it?")) {
-            const task = item.parentElement;
-            task.remove();
-        }
+      }
+
+      function deleteComplete (e) {
+          const item = e.target;  //confirms with the user they want to remove the task
+          if(item.classList[0] === 'delete-btn') {
+              if(confirm("Are you sure you want to delete it?")) {
+                  const task = item.parentElement;
+                  task.remove();
+              }
+          }
+          
+          if(item.classList[0] === 'complete-btn') {
+              const task = item.parentElement;
+              task.classList.toggle("completed");
+              count++;
+
+              var lblshow = "Number of completed tasks: " + count;
+              document.getElementById("lblcount").innerHTML = lblshow;
+          }
+      }
     }
-
-    if(item.classList[0] === 'complete-btn') {
-        const task = item.parentElement;
-        task.classList.toggle("completed");
-        count++;
-
-        var lblshow = "Number of completed tasks: " + count;
-        document.getElementById("lblcount").innerHTML = lblshow;
-    }
-}
-
       
     </script> 
 
