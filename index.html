@@ -1,3 +1,17 @@
+<!--
+  2022-03-30
+
+  Pomodoro web application project done for the purpose of Trend of Technology class
+
+  Tasks were divided as follow,
+  Overall UI and task-list: Amanda
+  Clock UI, associated features and modal: David
+  Golang server: You
+  Misc., paperwork: Ravid
+
+  seperated files were kept in case
+-->
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -57,6 +71,7 @@
           color: #d4e2ff
         }
         /*Task list*/
+
         .container {
           display: flex;
           justify-content: center;
@@ -396,31 +411,34 @@
 
       </ul>
     </div>
-
+    <!--Originally, everything was linked in.-->
     <!--<script src="./app.js"></script>-->
 
     <script>
       
 
-      // Selecting 
+      // Selectors
       const taskInput = document.querySelector('.textTask');
       const btnTask = document.querySelector('.btnTask');
       const taskList = document.querySelector('.taskList');
       const btnLogin = document.querySelector('.btnLogin');
       var count = 0;
 
+      // event listener
       btnTask.addEventListener('click', addTask);
       taskList.addEventListener('click', deleteComplete);
       btnLogin.addEventListener('click', login);
 
       function pageLoad() {
+        // to keep track of the amount of tasks completed by the user
           var lblshow = "Number of completed tasks: " + count;
           document.getElementById("lblcount").innerHTML = lblshow;
       }
 
       function addTask(event) {
-          event.preventDefault();     //so it doesn't submit
+          event.preventDefault();     //so it doesn't submit/refresh
           
+          //when the button is clicked, new elements will be created, in this case, to-do's
           const taskDiv = document.createElement('div');
           taskDiv.classList.add('task');
 
@@ -440,21 +458,21 @@
           deleteBtn.classList.add("delete-btn");
           taskDiv.appendChild(deleteBtn);
 
-          taskList.appendChild(taskDiv);
+          taskList.appendChild(taskDiv); //appends to the container
 
           taskInput.value = "";
 
       }
 
       function deleteComplete (e) {
-          const item = e.target;
+          const item = e.target;  //confirms with the user they want to remove the task
           if(item.classList[0] === 'delete-btn') {
               if(confirm("Are you sure you want to delete it?")) {
                   const task = item.parentElement;
                   task.remove();
               }
           }
-
+          
           if(item.classList[0] === 'complete-btn') {
               const task = item.parentElement;
               task.classList.toggle("completed");
