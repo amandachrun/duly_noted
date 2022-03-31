@@ -33,10 +33,14 @@
 
 
 Running the project:
-
+- First Way (does not support the clock)
 1. Execute the main.go file in the terminal
 2. Open the following page: http://localhost:8000/
 3. Input tasks, use timer, etc.
+- Second Way (complete)
+1. Install the live server extension from the visual studio marketplace
+2. Right click index.html
+3. Click "Open with live server"
 
 
 Credits:
