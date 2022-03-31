@@ -242,14 +242,7 @@
           grid-area: clock;
           height: 100%;
         }
-        /*
-        #settings {
-          align-self: center;
-          justify-self: center;
-          grid-area: form;
-          width: 50%;
-          justify-content: space-around;
-      }*/
+      
       /*modal*/
       .modal {
         display: none; /* Hidden by default */
@@ -297,6 +290,7 @@
   
   <body onload="pageLoad()">
 
+
     <!--Covers the page-->
     <!--Task List-->
     <header>
@@ -306,15 +300,154 @@
     </header>
     <p style="text-align:center; font-family: 'Oswad'; letter-spacing: 4px; color: white;"><i>Your productivity solution!</i></p>
     <br><br><br><br>
+    <script>
+
+/*progress*/
+const circle = document.querySelector(".progress-ring__circle");
+const radius = circle.r.baseVal.value;
+const circumference = radius * 2 * Math.PI;
+
+circle.style.strokeDasharray = circumference;
+circle.style.strokeDashoffset = circumference;
+
+function setProgress(percent) {
+  const offset = circumference - (percent / 100) * circumference;
+  circle.style.strokeDashoffset = offset;
+}
+<script/>
+
+
+/*settings*/
+
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("btnsetting");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+//when save button is pressed,it close the modal
+save.onclick = function(event){
+  modal.style.display = "none";
+}
+
+
+//initialization
+const focusTimeInput = document.querySelector("#focusTime");
+const pauseBtn = document.querySelector(".pause");
+focusTimeInput.value = localStorage.getItem("focusTime");
+
+//form that is in the modal window
+document.querySelector("form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  localStorage.setItem("focusTime", focusTimeInput.value);
+});
+//function to reset
+document.querySelector(".reset").addEventListener("click", () => {
+  startBtn.style.transform = "scale(1)";
+  clearTimeout(initial);
+  setProgress(0);
+  mindiv.textContent = 0;
+  secdiv.textContent = 0;
+});
+//function pause/resume
+pauseBtn.addEventListener("click", () => {
+  if (paused === undefined) {
+    return;
+  }
+  if (paused) {//will pause the clock
+    paused = false;
+    initial = setTimeout("decremenT()", 60);
+    pauseBtn.textContent = "pause";
+    pauseBtn.classList.remove("resume");
+  } else {//else if pressed resume, the clock will continue
+    clearTimeout(initial);
+    pauseBtn.textContent = "resume";
+    pauseBtn.classList.add("resume");
+    paused = true;
+  }
+});
+
+/*timer.js*/
+
+//intialization
+const el = document.querySelector(".clock");
+const bell = document.querySelector("audio");
+
+const mindiv = document.querySelector(".mins");
+const secdiv = document.querySelector(".secs");
+
+const startBtn = document.querySelector(".start");
+localStorage.setItem("btn", "focus");
+
+let initial, totalsecs, perc, paused, mins, seconds;
+//when the button start has been pressed 
+startBtn.addEventListener("click", () => {
+  let btn = localStorage.getItem("btn");
+
+  if (btn === "focus") {
+    mins = +localStorage.getItem("focusTime") || 1;
+  } 
+  seconds = mins * 60;
+  totalsecs = mins * 60;
+  setTimeout(decremenT(), 60);
+  startBtn.style.transform = "scale(0)";
+  paused = false;
+});
+// decrement the time
+function decremenT() {
+  mindiv.textContent = Math.floor(seconds / 60);
+  secdiv.textContent = seconds % 60 > 9 ? seconds % 60 : `0${seconds % 60}`;
+  if (circle.classList.contains("danger")) {
+    circle.classList.remove("danger");
+  }
+
+  if (seconds > 0) {
+    perc = Math.ceil(((totalsecs - seconds) / totalsecs) * 100);
+    setProgress(perc);
+    seconds--;
+    initial = window.setTimeout("decremenT()", 1000);
+    if (seconds < 10) {//turn red when less than 10 sec
+      circle.classList.add("danger");
+    }
+  } else {//when timer is finsih
+    mins = 0;
+    seconds = 0;
+    bell.play();
     
+    startBtn.style.transform = "scale(1)";
+  }
+}
+
+
+    </script> 
     <!--Clock-->
     <figure class="clock">
       <div class="mins">0</div>
       <div>:</div>
       <div class="secs">00</div>
+      <!--sound when timer is finish-->
       <audio
-      src="http://soundbible.com/mp3/service-bell_daniel_simion.mp3"
-      ></audio>
+      src="http://soundbible.com/mp3/service-bell_daniel_simion.mp3"></audio>
       <svg class="progress-ring" height="120" width="120">
         <circle
         class="progress-ring__circle"
@@ -327,6 +460,7 @@
       </svg>
     </figure>
     <br>
+    <!--start,reset, pause, setting button-->
     <table class="myTable">
     <tr>
       <td>
@@ -341,7 +475,7 @@
           <!-- Modal content -->
           <div class="modal-content">
             <table class="myTable">
-              <form class="formTask" action=".">
+              <form class="formTask">
            
               <tr>
                 
@@ -373,15 +507,15 @@
       </td>
     </tr>
     </table>
-
-    
+ <!--- when you uncomment these js file the clock will work-->
+    <!--- 
     <script src="settings.js"></script>
     <script src="timer.js"></script>
     <script src="progress.js"></script>
-  
+    -->
 
     <!--Task list-->
-    
+     
     <p id="lblcount"></p>
     <form class="formTask">
       <input type="text" class="textTask" value="Type your tasks here...">
@@ -408,7 +542,7 @@ const taskList = document.querySelector('.taskList');
 const btnLogin = document.querySelector('.btnLogin');
 var count = 0;
 
-btnTask.addEventListener('click', addTask);
+btnTask.addEventListener('click', addTask); 
 taskList.addEventListener('click', deleteComplete);
 btnLogin.addEventListener('click', login);
 
@@ -464,11 +598,8 @@ function deleteComplete (e) {
     }
 }
 
-
-
-
       
-    </script>
+    </script> 
 
   </body>
 </html>
